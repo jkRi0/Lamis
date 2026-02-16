@@ -5,14 +5,14 @@ function Students() {
   const [showAll, setShowAll] = useState(true);
 
   const students = [
-    { id: 1, name: 'Justine Ken Rioveros', course: 'BS Information Technology', year: '4th Year' },
-    { id: 2, name: 'Jeffry Duria', course: 'BS Information Technology', year: '4th Year' },
-    { id: 3, name: 'Darren Martin', course: 'BS Information Technology', year: '4th Year' },
-    { id: 4, name: 'Vin Cedrick Lamis', course: 'BS Information Technology', year: '4th Year' },
-    { id: 5, name: 'Alex Cruz', course: 'BS Computer Science', year: '3rd Year' },
-    { id: 6, name: 'Bianca Flores', course: 'BS Computer Science', year: '2nd Year' },
-    { id: 7, name: 'Carlo Mendoza', course: 'BS Computer Science', year: '1st Year' },
-    { id: 8, name: 'Diana Ramos', course: 'BS Computer Science', year: '4th Year' },
+    { id: 1, name: 'Alice Thompson', course: 'BS Information Technology', year: '4th Year' },
+    { id: 2, name: 'Benjamin Parker', course: 'BS Information Technology', year: '4th Year' },
+    { id: 3, name: 'Catherine Hayes', course: 'BS Information Technology', year: '4th Year' },
+    { id: 4, name: 'David Miller', course: 'BS Information Technology', year: '4th Year' },
+    { id: 5, name: 'Eleanor Vance', course: 'BS Computer Science', year: '3rd Year' },
+    { id: 6, name: 'Franklin Moore', course: 'BS Computer Science', year: '2nd Year' },
+    { id: 7, name: 'Grace Collins', course: 'BS Computer Science', year: '1st Year' },
+    { id: 8, name: 'Henry Ford', course: 'BS Computer Science', year: '4th Year' },
   ];
 
   const visibleStudents = showAll ? students : students.filter(s => s.course === 'BS Information Technology');
