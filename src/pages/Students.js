@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import StudentComponent from '../components/StudentComponent';
-import theme from '../theme';
 
 function Students() {
   const [showAll, setShowAll] = useState(true);
@@ -19,37 +18,23 @@ function Students() {
   const visibleStudents = showAll ? students : students.filter(s => s.course === 'BS Information Technology');
 
   return (
-    <div style={{ ...theme.styles.pageContainer, backgroundColor: theme.colors.bgMain, minHeight: '100vh' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+    <div className="main-content">
+      <div className="filter-container" style={{ alignItems: 'flex-end', marginBottom: '3rem' }}>
         <div>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: theme.colors.textMain, marginBottom: '0.5rem' }}>Student Directory</h2>
-          <p style={{ color: theme.colors.textMuted, margin: 0 }}>Browse and filter through our list of currently enrolled students.</p>
+          <h2 className="section-title">Student Directory</h2>
+          <p className="section-subtitle" style={{ margin: 0 }}>Browse and filter through our list of currently enrolled students.</p>
         </div>
 
         <button
           onClick={() => setShowAll(!showAll)}
-          style={{
-            ...theme.styles.btn,
-            backgroundColor: showAll ? 'white' : theme.colors.primary,
-            color: showAll ? theme.colors.textMain : 'white',
-            borderColor: showAll ? theme.colors.border : theme.colors.primary,
-            padding: '0.75rem 1.5rem',
-            boxShadow: theme.shadows.sm,
-          }}
-          onMouseOver={(e) => {
-            if (showAll) e.target.style.backgroundColor = '#f1f5f9';
-            else e.target.style.backgroundColor = theme.colors.primaryHover;
-          }}
-          onMouseOut={(e) => {
-            if (showAll) e.target.style.backgroundColor = 'white';
-            else e.target.style.backgroundColor = theme.colors.primary;
-          }}
+          className={`btn ${showAll ? 'btn-outline' : 'btn-primary'}`}
+          style={{ padding: '0.75rem 1.5rem' }}
         >
           {showAll ? 'Filter BSIT Only' : 'Show All Students'}
         </button>
       </div>
 
-      <div style={{ ...theme.styles.grid }}>
+      <div className="card-grid">
         {visibleStudents.map(student => (
           <StudentComponent
             key={student.id}

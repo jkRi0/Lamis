@@ -1,41 +1,30 @@
-import React, { useState } from 'react';
-import theme from '../theme';
+import React from 'react';
 
 function StudentComponent({ name, course, year }) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const cardStyle = {
-    ...theme.styles.card,
-    transform: isHovered ? 'translateY(-4px)' : 'none',
-    boxShadow: isHovered ? theme.shadows.lg : theme.shadows.sm,
-  };
-
   const badgeStyle = {
-    backgroundColor: theme.colors.badgeBg,
-    color: theme.colors.badgeText,
-    padding: '4px 12px',
-    borderRadius: '20px',
-    fontSize: '0.75rem',
-    fontWeight: 700,
+    backgroundColor: 'var(--secondary)',
+    color: 'var(--white)',
+    padding: '4px 8px',
+    fontSize: '0.7rem',
+    fontWeight: 900,
     textTransform: 'uppercase',
-    letterSpacing: '0.025em',
+    letterSpacing: '0.1em',
   };
 
   return (
-    <div 
-      style={{ ...cardStyle }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="card">
       <div style={{ marginBottom: '1rem' }}>
-        <span style={{ ...badgeStyle }}>{year}</span>
+        <span style={badgeStyle}>{year}</span>
       </div>
-      <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: theme.colors.textMain }}>{name}</h3>
-      <p style={{ color: theme.colors.textMuted, fontSize: '0.9rem', margin: 0 }}>{course}</p>
+      <h3 className="card-title">{name}</h3>
+      <p className="card-info">{course}</p>
       
-      <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: `1px solid ${theme.colors.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#10b981' }}>● Active</span>
-        <span style={{ fontSize: '0.75rem', color: theme.colors.textMuted }}>ID: 2024-STUD</span>
+      <div className="details" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{ fontSize: '0.7rem', fontWeight: 900, color: 'var(--primary)', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ width: '8px', height: '8px', backgroundColor: 'var(--primary)' }}></span>
+          Active
+        </span>
+        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700 }}>ID: 2024-STUD</span>
       </div>
     </div>
   );
